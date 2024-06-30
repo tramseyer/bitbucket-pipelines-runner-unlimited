@@ -1,0 +1,10 @@
+[Unit]
+Description=crictl-cpu-quota
+
+[Service]
+Environment="HOME=/root"
+ExecStart=/root/crictl-cpu-quota.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

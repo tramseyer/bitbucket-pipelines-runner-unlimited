@@ -1,0 +1,9 @@
+[Unit]
+Description=docker-memory-limit
+
+[Service]
+ExecStart=/root/docker-memory-limit.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

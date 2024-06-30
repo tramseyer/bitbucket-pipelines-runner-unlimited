@@ -1,0 +1,10 @@
+[Unit]
+Description=crictl-memory-limit
+
+[Service]
+Environment="HOME=/root"
+ExecStart=/root/crictl-memory-limit.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

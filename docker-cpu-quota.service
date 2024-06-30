@@ -1,0 +1,9 @@
+[Unit]
+Description=docker-cpu-quota
+
+[Service]
+ExecStart=/root/docker-cpu-quota.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
