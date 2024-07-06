@@ -46,6 +46,7 @@ systemctl status --no-pager docker-{cpu-quota,memory-limit}
 ```
 # Links
 * [Bitbucket Cloud / BCLOUD-21403: Allow configuring CPU limits for runners](https://jira.atlassian.com/browse/BCLOUD-21403)
+* [Bitbucket Cloud / BCLOUD-21645: Ability to use all the available memory on the host by Self hosted runners](https://jira.atlassian.com/browse/BCLOUD-21645)
 * [Atlassian Community: How to use more CPU cores of host for bitbucket runner?](https://community.atlassian.com/t5/Bitbucket-Pipelines-Runners/How-to-use-more-CPU-cores-of-host-for-bitbucket-runner/qaq-p/1825300)
 * [Atlassian Community: Number of CPUs available in BB pipelines](https://community.atlassian.com/t5/Bitbucket-questions/Number-of-CPUs-available-in-BB-pipelines/qaq-p/972594)
 * [LinkedIn: Number of CPUs available in BB pipelines](https://www.linkedin.com/posts/logmaster_number-of-cpus-available-in-bb-pipelines-activity-7116544179366768640-qexR)
