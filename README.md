@@ -19,7 +19,7 @@ With 1000 Build minutes on Bitbucket Cloud infrastructure being sold for $10 and
 | ~$20 (*CX42*) | **$1728** (`4x`) |
 | ~$40 (*CX52*) | **$3456** (`8x`) |
 # Setup
-## crictl container runtime (e. g. using [hetzner-k3s](https://github.com/vitobotta/hetzner-k3s) and [runners-autoscaler](https://bitbucket.org/bitbucketpipelines/runners-autoscaler))
+## crictl as container runtime (e. g. using [hetzner-k3s](https://github.com/vitobotta/hetzner-k3s) and [runners-autoscaler](https://bitbucket.org/bitbucketpipelines/runners-autoscaler))
 `hetzner-k3s_cluster_config.yaml`
 ```yml
 ...
@@ -35,7 +35,29 @@ git@github.com:tramseyer/bitbucket-pipelines-runner-unlimited.git
 cd bitbucket-pipelines-runner-unlimited
 ./setup.sh docker
 ```
-# Monitoring
+## kubernetes (e. g. using [Docker-based runner on Kubernetes](https://support.atlassian.com/bitbucket-cloud/docs/deploying-the-docker-based-runner-on-kubernetes/) or [Autoscaler for Runners on Kubernetes](https://support.atlassian.com/bitbucket-cloud/docs/autoscaler-for-runners-on-kubernetes/))
+`kustomize/base/cm-job-template.yaml` / `config/runners-autoscaler-cm-job.template.yaml`
+```yml
+...
+                - name: runner
+                  ...
+                - name: docker
+                  ...
+                - name: docker-cpu-quota
+                  image: docker:cli
+                  command: ["/bin/sh", "-c", "wget -qO- https://raw.githubusercontent.com/tramseyer/bitbucket-pipelines-runner-unlimited/master/docker-cpu-quota.sh | sh"]
+                  volumeMounts:
+                    - name: var-run
+                      mountPath: /var/run
+                - name: docker-memory-limit
+                  image: docker:cli
+                  command: ["/bin/sh", "-c", "wget -qO- https://raw.githubusercontent.com/tramseyer/bitbucket-pipelines-runner-unlimited/master/docker-memory-limit.sh | sh"]
+                  volumeMounts:
+                    - name: var-run
+                      mountPath: /var/run
+...
+```
+# Monitoring of services
 ## on kubernetes node
 ```sh
 systemctl status --no-pager crictl-{cpu-quota,memory-limit}
