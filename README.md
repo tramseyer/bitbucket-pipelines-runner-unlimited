@@ -66,6 +66,9 @@ systemctl status --no-pager crictl-{cpu-quota,memory-limit}
 ```sh
 systemctl status --no-pager docker-{cpu-quota,memory-limit}
 ```
+# Remarks
+* **NVIDIA GPUs:** If you hit `Failed to initialize NVML: Unknown Error`, see [issue #2](https://github.com/tramseyer/bitbucket-pipelines-runner-unlimited/issues/2) for causes and workarounds.
+
 # Links
 * [Bitbucket Cloud / BCLOUD-21403: Allow configuring CPU limits for runners](https://jira.atlassian.com/browse/BCLOUD-21403)
 * [Bitbucket Cloud / BCLOUD-21645: Ability to use all the available memory on the host by Self hosted runners](https://jira.atlassian.com/browse/BCLOUD-21645)
