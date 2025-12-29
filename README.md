@@ -1,3 +1,5 @@
+# Update on [Bitbucket Cloud / BCLOUD-21403](https://jira.atlassian.com/browse/BCLOUD-21403)
+The core issue appears to have been resolved with the [Runners V5 update](https://www.atlassian.com/blog/bitbucket/announcing-v5-self-hosted-runners).
 # Lifting bitbucket pipelines runner limitations
 The scripts and services in this repository are intended for lifting the resource limitations imposed on self-hosted Bitbucket Pipelines Linux Docker runners.
 ## Details
